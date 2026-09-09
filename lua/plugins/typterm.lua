@@ -1,10 +1,11 @@
--- Copy this file to ~/.config/nvim/lua/plugins/typterm.lua after building.
--- The project supplies this plugin; it does not download another plugin.
+-- Opt in with vim.g.typterm_enabled = true in lua/config/options.lua.
+-- The locally built project supplies this plugin; nothing is downloaded here.
 local project = vim.fn.expand("~/Code/TypTerm")
 return {
   {
     dir = project,
     name = "typterm.nvim",
+    enabled = vim.g.typterm_enabled == true,
     ft = { "markdown", "typst", "tex", "plaintex" },
     cmd = { "TypTermPreview", "TypTermStop", "TypTermRefresh", "TypTermToggle" },
     init = function() vim.filetype.add({ extension = { typ = "typst" } }) end,

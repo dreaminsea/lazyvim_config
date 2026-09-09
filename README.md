@@ -2,6 +2,18 @@
 
 This is my Neovim config based on LazyVim
 
+## TypTerm（可选，默认不安装）
+
+TypTerm 默认关闭，不会安装或加载插件，也不会注册 TypTerm 命令和快捷键。同步本配置到新机器时，无需准备 TypTerm。
+
+需要使用时：
+
+1. 将 TypTerm 项目放在 `~/Code/TypTerm`，在该目录运行 `make build`，生成 `.build/debug/typterm`。如果使用其他位置，请同步修改 `lua/plugins/typterm.lua` 中的 `project` 和 `opts.command`。
+2. 在 `lua/config/options.lua` 中将 `vim.g.typterm_enabled = false` 改为 `vim.g.typterm_enabled = true`。
+3. 重启 Neovim，使用 `<Space>tp` 打开预览，`<Space>tm` 切换分栏 / 行内模式，`<Space>tq` 停止预览。
+
+改回 `false` 并重启即可关闭；本地 TypTerm 项目和构建产物会保留。
+
 ## 调试（Python / C / C++）
 
 打开源文件，按 `F9` 打断点，再按 `F5`。启动前自动保存当前文件，调试时左侧显示变量、监视、调用栈和断点，底部显示调试控制台和程序终端。程序结束后面板保留，可用 `<Space>du` 收起。
